@@ -1,0 +1,446 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 100% 61.5%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 10% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 10% 10%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 12%;
+    --input: 240 10% 12%;
+    --ring: 0 100% 61.5%;
+    --radius: 0.75rem;
+    /* Rianpedia custom tokens */
+    --neon-red: #FF3B3B;
+    --neon-red: #FF3B3B;
+    --neon-grey: #9CA3AF;
+    --neon-dark: #374151;
+    --neon-pink: #E50914;
+    --bg-primary: #0A0A0F;
+    --bg-secondary: #020617;
+    --bg-card: rgba(255,255,255,0.03);
+    --glass-border: rgba(255,255,255,0.06);
+    --glow-red: 0 0 30px rgba(255, 59, 59, 0.4);
+    --glow-grey: 0 0 30px rgba(156, 163, 175, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-wider;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 59, 59, 0.4);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 59, 59, 0.7);
+  }
+
+  ::selection {
+    background: rgba(255, 59, 59, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* ============================
+     GLASSMORPHISM CARDS
+     ============================ */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 59, 59, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 59, 59, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* ============================
+     NEON EFFECTS
+     ============================ */
+  .neon-text-red {
+    color: #FF3B3B;
+    text-shadow: 0 0 20px rgba(255, 59, 59, 0.6), 0 0 40px rgba(255, 59, 59, 0.3);
+  }
+
+  .neon-text-grey {
+    color: #9CA3AF;
+    text-shadow: 0 0 20px rgba(156, 163, 175, 0.4);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(255, 59, 59, 0.5);
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.2), inset 0 0 20px rgba(255, 59, 59, 0.05);
+  }
+
+  .neon-border-grey {
+    border: 1px solid rgba(156, 163, 175, 0.3);
+    box-shadow: 0 0 20px rgba(156, 163, 175, 0.1);
+  }
+
+  /* ============================
+     GRADIENT TEXT
+     ============================ */
+  .gradient-text {
+    background: linear-gradient(135deg, #FF3B3B 0%, #9CA3AF 50%, #374151 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-red-deep {
+    background: linear-gradient(135deg, #FF3B3B 0%, #E50914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ============================
+     BUTTONS
+     ============================ */
+  .btn-primary {
+    background: #0A0A0F;
+    color: white;
+    border: 1px solid rgba(255, 59, 59, 0.3);
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(255, 59, 59, 0.15);
+  }
+
+  .btn-primary:hover {
+    background: #12121e;
+    border-color: rgba(255, 59, 59, 0.6);
+    box-shadow: 0 0 30px rgba(255, 59, 59, 0.4);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 59, 59, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .btn-primary:hover::after {
+    opacity: 1;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+
+  /* ============================
+     SECTION LAYOUT
+     ============================ */
+  .section-padding {
+    padding: 5rem 0;
+  }
+
+  .container-rianpedia {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ============================
+     AI GRID BACKGROUND
+     ============================ */
+  .ai-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 59, 59, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 59, 59, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  /* ============================
+     PARTICLES
+     ============================ */
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--neon-red);
+    animation: particle 8s ease-in-out infinite;
+  }
+
+  /* ============================
+     BADGE / TAG
+     ============================ */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(255, 59, 59, 0.15);
+    border: 1px solid rgba(255, 59, 59, 0.3);
+    color: #ff8e8e;
+  }
+
+  .tag-grey {
+    background: rgba(156, 163, 175, 0.1);
+    border-color: rgba(156, 163, 175, 0.3);
+    color: #d1d5db;
+  }
+
+  /* ============================
+     SECTION LABEL
+     ============================ */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(255, 59, 59, 0.1);
+    border: 1px solid rgba(255, 59, 59, 0.25);
+    color: #ff8e8e;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ============================
+     INPUT 
+     ============================ */
+  .input-rianpedia {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+
+  .input-rianpedia:focus {
+    border-color: rgba(255, 59, 59, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.1);
+    background: rgba(255, 59, 59, 0.05);
+  }
+
+  .input-rianpedia::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* ============================
+     HOVER GLOW EFFECT
+     ============================ */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 12px rgba(255, 59, 59, 0.6));
+  }
+
+  /* ============================
+     STAT CARD
+     ============================ */
+  .stat-card {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FF3B3B, #9CA3AF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ============================
+   CUSTOM ANIMATIONS
+   ============================ */
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  5% { opacity: 1; }
+  95% { opacity: 0.8; }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes border-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #FF3B3B }
+}
+
+/* Shimmer loading effect */
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Hero glow orb */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.glow-orb-red {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #FF3B3B 0%, transparent 70%);
+}
+
+.glow-orb-grey {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #9CA3AF 0%, transparent 70%);
+}
+
+.glow-orb-dark-red {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #E50914 0%, transparent 70%);
+}
