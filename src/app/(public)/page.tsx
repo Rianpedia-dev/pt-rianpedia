@@ -10,6 +10,7 @@ import { portfolios, services, testimonials } from "@/db/schema";
 import { desc, asc, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Rianpedia — Engineering the Future with Intelligent Systems",
   description:

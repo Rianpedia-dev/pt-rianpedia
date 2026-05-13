@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Globe, Settings, Bot, Plug, CheckCircle } from "lucide-react";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Services — Rianpedia",

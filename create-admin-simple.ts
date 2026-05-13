@@ -39,7 +39,7 @@ async function createAdmin() {
     console.log("   Then run this script again to set the admin role.");
     
   } catch (error) {
-    console.error("❌ Error:", error.message);
+    console.error("❌ Error:", error instanceof Error ? error.message : String(error));
   } finally {
     await sql.end();
   }

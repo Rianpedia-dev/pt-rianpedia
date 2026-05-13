@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const newUser = await db.insert(users).values({
+      id: crypto.randomUUID(),
       email: body.email,
       name: body.name,
       avatarUrl: body.avatarUrl || null,

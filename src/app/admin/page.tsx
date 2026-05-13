@@ -3,6 +3,7 @@ import { users, projects, invoices, contactSubmissions, portfolios, services, te
 import { count, sum, eq } from "drizzle-orm";
 import { Users, FolderKanban, Receipt, Mail, Briefcase, Wrench, MessageSquareQuote, TrendingUp } from "lucide-react";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 async function getStats() {
   const [
