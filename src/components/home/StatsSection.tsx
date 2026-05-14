@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { number: 50, suffix: "+", label: "Projects Delivered" },
-  { number: 30, suffix: "+", label: "Happy Clients" },
-  { number: 3, suffix: "+", label: "Years Experience" },
-  { number: 99, suffix: "%", label: "Client Satisfaction" },
+  { number: 50, suffix: "+", label: "PROJECTS DELIVERED" },
+  { number: 30, suffix: "+", label: "HAPPY CLIENTS" },
+  { number: 3, suffix: "+", label: "YEARS EXPERIENCE" },
+  { number: 99, suffix: "%", label: "CLIENT SATISFACTION" },
 ];
 
 function AnimatedNumber({ target, suffix }: { target: number; suffix: string }) {
@@ -40,7 +40,7 @@ function AnimatedNumber({ target, suffix }: { target: number; suffix: string }) 
   }, [target]);
 
   return (
-    <div ref={ref} className="stat-number">
+    <div ref={ref} className="display-sm">
       {count}{suffix}
     </div>
   );
@@ -48,24 +48,22 @@ function AnimatedNumber({ target, suffix }: { target: number; suffix: string }) 
 
 export function StatsSection() {
   return (
-    <section
-      className="py-16 relative"
-      style={{
-        background: "rgba(8, 8, 20, 0.8)",
-        borderTop: "1px solid rgba(255,255,255,0.04)",
-        borderBottom: "1px solid rgba(255,255,255,0.04)",
-      }}
-    >
-      <div className="container-rianpedia">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map(({ number, suffix, label }) => (
+    <section style={{ background: "transparent" }}>
+      {/* Top hairline */}
+      <div className="m-stripe" />
+      <div className="container-rianpedia" style={{ padding: "64px 1.5rem" }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+          {stats.map(({ number, suffix, label }, idx) => (
             <div
               key={label}
-              className="stat-card glass-card"
-              style={{ padding: "1.5rem" }}
+              className="spec-cell"
+              style={{
+                borderRight: idx < stats.length - 1 ? "1px solid #3c3c3c" : "none",
+                padding: "40px 24px",
+              }}
             >
               <AnimatedNumber target={number} suffix={suffix} />
-              <p className="stat-label">{label}</p>
+              <p className="spec-label">{label}</p>
             </div>
           ))}
         </div>

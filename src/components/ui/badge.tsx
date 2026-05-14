@@ -3,19 +3,19 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-none border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[1px] transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
-        default: "border-transparent bg-primary/20 text-primary",
-        secondary: "border-transparent bg-secondary text-secondary-foreground",
-        destructive: "border-transparent bg-destructive/20 text-red-400",
-        outline: "text-foreground",
-        success: "border-transparent bg-emerald-500/20 text-emerald-400",
-        warning: "border-transparent bg-amber-500/20 text-amber-400",
-        info: "border-transparent bg-slate-500/20 text-slate-400",
-        grey: "border-transparent bg-gray-500/20 text-gray-400",
-        purple: "border-transparent bg-purple-500/20 text-purple-400",
+        default: "border-hairline bg-surface-card text-on-dark",
+        secondary: "border-hairline bg-surface-soft text-body",
+        destructive: "border-m-red/50 bg-m-red/10 text-m-red",
+        outline: "border-hairline bg-transparent text-on-dark",
+        success: "border-success/50 bg-success/10 text-success",
+        warning: "border-warning/50 bg-warning/10 text-warning",
+        info: "border-m-blue-light/50 bg-m-blue-light/10 text-m-blue-light",
+        grey: "border-hairline bg-carbon-gray text-muted",
+        purple: "border-hairline bg-surface-elevated text-body-strong",
       },
     },
     defaultVariants: {

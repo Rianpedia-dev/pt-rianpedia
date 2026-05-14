@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter, Orbitron, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 
@@ -7,18 +7,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-});
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-orbitron",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
+  weight: ["300", "400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -67,25 +56,54 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
+import { AppThemeProvider } from "@/components/app-theme-provider";
+import { ThemeBackgroundDark } from "@/components/theme-background-dark";
+
+if (typeof window !== "undefined") {
+  const originalWarn = console.warn;
+  console.warn = (...args) => {
+    if (
+      typeof args[0] === "string" &&
+      (args[0].includes("THREE.Clock") || args[0].includes("scroll-behavior"))
+    ) {
+      return;
+    }
+    originalWarn(...args);
+  };
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="dark">
-      <body className={`${inter.variable} ${orbitron.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
-        <Toaster
-          theme="dark"
-          toastOptions={{
-            style: {
-              background: "rgba(10, 10, 26, 0.95)",
-              border: "1px solid rgba(255, 59, 59, 0.3)",
-              color: "#fff",
-            },
-          }}
-        />
+    <html lang="id" suppressHydrationWarning data-scroll-behavior="smooth">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <AppThemeProvider>
+          <ThemeBackgroundDark />
+          <main className="relative z-10">
+            {children}
+          </main>
+          <Toaster
+            theme="dark"
+            toastOptions={{
+              style: {
+                background: "#1a1a1a",
+                border: "1px solid #3c3c3c",
+                color: "#fff",
+                borderRadius: "0",
+              },
+            }}
+          />
+        </AppThemeProvider>
       </body>
     </html>
   );

@@ -1,43 +1,49 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 5%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 5%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 100% 61.5%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 10% 10%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 10% 10%;
-    --muted-foreground: 240 5% 55%;
-    --accent: 195 100% 50%;
-    --accent-foreground: 240 10% 3.9%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 10% 12%;
-    --input: 240 10% 12%;
-    --ring: 0 100% 61.5%;
-    --radius: 0.75rem;
-    /* Rianpedia custom tokens */
-    --neon-red: #FF3B3B;
-    --neon-red: #FF3B3B;
-    --neon-grey: #9CA3AF;
-    --neon-dark: #374151;
-    --neon-pink: #E50914;
-    --bg-primary: #0A0A0F;
-    --bg-secondary: #020617;
-    --bg-card: rgba(255,255,255,0.03);
-    --glass-border: rgba(255,255,255,0.06);
-    --glow-red: 0 0 30px rgba(255, 59, 59, 0.4);
-    --glow-grey: 0 0 30px rgba(156, 163, 175, 0.2);
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 49%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 5 91% 49%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 0 0% 100%;
+    --radius: 0px;
+
+    /* BMW M Design System Tokens */
+    --color-canvas: #000000;
+    --color-surface-soft: #0d0d0d;
+    --color-surface-card: #1a1a1a;
+    --color-surface-elevated: #262626;
+    --color-carbon-gray: #2b2b2b;
+    --color-hairline: #3c3c3c;
+    --color-on-dark: #ffffff;
+    --color-body: #bbbbbb;
+    --color-body-strong: #e6e6e6;
+    --color-muted: #7e7e7e;
+    --color-m-blue-light: #0066b1;
+    --color-m-blue-dark: #1c69d4;
+    --color-m-red: #e22718;
+  }
+
+  .dark {
+    --background: transparent; /* Required for WebGL visibility */
+    --foreground: 0 0% 100%;
   }
 }
 
@@ -48,17 +54,28 @@
   }
 
   html {
-    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground;
-    background-color: var(--bg-primary);
     overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Padding for mobile bottom nav */
+  .pb-mobile-nav {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+  @media (min-width: 768px) {
+    .pb-mobile-nav {
+      padding-bottom: 0;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading tracking-wider;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
   }
 
   /* Custom scrollbar */
@@ -67,296 +84,371 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--bg-primary);
+    background: #000;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 59, 59, 0.4);
-    border-radius: 3px;
+    background: var(--color-hairline);
+    border-radius: 0;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 59, 59, 0.7);
+    background: var(--color-muted);
   }
 
   ::selection {
-    background: rgba(255, 59, 59, 0.3);
+    background: rgba(226, 39, 24, 0.3);
     color: #fff;
+  }
+
+  #webgl-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
   }
 }
 
 @layer components {
   /* ============================
-     GLASSMORPHISM CARDS
+     BMW M TYPOGRAPHY SYSTEM
      ============================ */
-  .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  .display-xl {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
   }
 
+  .display-lg {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
+  }
+
+  .display-md {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
+  }
+
+  .display-sm {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
+  }
+
+  .title-lg {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-on-dark);
+  }
+
+  .title-md {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-on-dark);
+  }
+
+  .title-sm {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-on-dark);
+  }
+
+  .label-uppercase {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
+  }
+
+  .body-md {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--color-body);
+  }
+
+  .body-sm {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--color-body);
+  }
+
+  .caption {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    color: var(--color-muted);
+  }
+
+  /* ============================
+     BMW M SURFACES
+     ============================ */
+  .surface-card {
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: 0;
+    transition: border-color 0.3s ease;
+  }
+
+  .surface-card:hover {
+    border-color: var(--color-on-dark);
+  }
+
+  .surface-soft {
+    background: var(--color-surface-soft);
+    border-radius: 0;
+  }
+
+  .surface-elevated {
+    background: var(--color-surface-elevated);
+    border-radius: 0;
+  }
+
+  /* Keep glass for mobile bottom nav only */
   .glass-strong {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  .glass-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 59, 59, 0.3);
-    box-shadow: 0 8px 32px rgba(255, 59, 59, 0.15);
-    transform: translateY(-2px);
-  }
-
   /* ============================
-     NEON EFFECTS
+     M STRIPE DIVIDER
      ============================ */
-  .neon-text-red {
-    color: #FF3B3B;
-    text-shadow: 0 0 20px rgba(255, 59, 59, 0.6), 0 0 40px rgba(255, 59, 59, 0.3);
+  .m-stripe {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--color-m-blue-light) 0%,
+      var(--color-m-blue-light) 33%,
+      var(--color-m-blue-dark) 33%,
+      var(--color-m-blue-dark) 66%,
+      var(--color-m-red) 66%,
+      var(--color-m-red) 100%
+    );
   }
 
-  .neon-text-grey {
-    color: #9CA3AF;
-    text-shadow: 0 0 20px rgba(156, 163, 175, 0.4);
-  }
-
-  .neon-border {
-    border: 1px solid rgba(255, 59, 59, 0.5);
-    box-shadow: 0 0 20px rgba(255, 59, 59, 0.2), inset 0 0 20px rgba(255, 59, 59, 0.05);
-  }
-
-  .neon-border-grey {
-    border: 1px solid rgba(156, 163, 175, 0.3);
-    box-shadow: 0 0 20px rgba(156, 163, 175, 0.1);
-  }
-
-  /* ============================
-     GRADIENT TEXT
-     ============================ */
-  .gradient-text {
-    background: linear-gradient(135deg, #FF3B3B 0%, #9CA3AF 50%, #374151 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-red-deep {
-    background: linear-gradient(135deg, #FF3B3B 0%, #E50914 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .m-stripe-sm {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--color-m-blue-light) 0%,
+      var(--color-m-blue-light) 33%,
+      var(--color-m-blue-dark) 33%,
+      var(--color-m-blue-dark) 66%,
+      var(--color-m-red) 66%,
+      var(--color-m-red) 100%
+    );
   }
 
   /* ============================
-     BUTTONS
+     BMW M BUTTONS
      ============================ */
   .btn-primary {
-    background: #0A0A0F;
-    color: white;
-    border: 1px solid rgba(255, 59, 59, 0.3);
-    padding: 0.75rem 2rem;
-    border-radius: 0.75rem;
+    background: var(--color-canvas);
+    color: var(--color-on-dark);
+    border: 1px solid var(--color-on-dark);
+    padding: 16px 32px;
+    border-radius: 0;
     font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(255, 59, 59, 0.15);
+    transition: all 0.3s ease;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn-primary:hover {
-    background: #12121e;
-    border-color: rgba(255, 59, 59, 0.6);
-    box-shadow: 0 0 30px rgba(255, 59, 59, 0.4);
-    transform: translateY(-2px) scale(1.02);
-  }
-
-  .btn-primary::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 59, 59, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .btn-primary:hover::after {
-    opacity: 1;
+    background: var(--color-on-dark);
+    color: var(--color-canvas);
   }
 
   .btn-outline {
     background: transparent;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.75rem 2rem;
-    border-radius: 0.75rem;
+    color: var(--color-on-dark);
+    border: 1px solid var(--color-on-dark);
+    padding: 16px 32px;
+    border-radius: 0;
     font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   /* ============================
      SECTION LAYOUT
      ============================ */
   .section-padding {
-    padding: 5rem 0;
+    padding: 96px 0;
   }
 
   .container-rianpedia {
-    max-width: 1280px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
   /* ============================
-     AI GRID BACKGROUND
-     ============================ */
-  .ai-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255, 59, 59, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 59, 59, 0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-  }
-
-  /* ============================
-     PARTICLES
-     ============================ */
-  .particle {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: var(--neon-red);
-    animation: particle 8s ease-in-out infinite;
-  }
-
-  /* ============================
-     BADGE / TAG
-     ============================ */
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    background: rgba(255, 59, 59, 0.15);
-    border: 1px solid rgba(255, 59, 59, 0.3);
-    color: #ff8e8e;
-  }
-
-  .tag-grey {
-    background: rgba(156, 163, 175, 0.1);
-    border-color: rgba(156, 163, 175, 0.3);
-    color: #d1d5db;
-  }
-
-  /* ============================
-     SECTION LABEL
+     BMW M SECTION LABEL
      ============================ */
   .section-label {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.375rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    background: rgba(255, 59, 59, 0.1);
-    border: 1px solid rgba(255, 59, 59, 0.25);
-    color: #ff8e8e;
+    color: var(--color-muted);
     margin-bottom: 1.5rem;
   }
 
   /* ============================
-     INPUT 
+     CATEGORY TABS
+     ============================ */
+  .category-tab {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-body);
+    padding: 12px 0;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .category-tab:hover,
+  .category-tab-active {
+    color: var(--color-on-dark);
+    border-bottom-color: var(--color-on-dark);
+  }
+
+  /* ============================
+     BMW M INPUT
      ============================ */
   .input-rianpedia {
     width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0.75rem;
-    padding: 0.875rem 1.25rem;
-    color: white;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-hairline);
+    border-radius: 0;
+    padding: 12px 16px;
+    color: var(--color-on-dark);
+    font-size: 16px;
+    font-weight: 300;
+    height: 48px;
+    transition: border-color 0.3s ease;
     outline: none;
   }
 
   .input-rianpedia:focus {
-    border-color: rgba(255, 59, 59, 0.5);
-    box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.1);
-    background: rgba(255, 59, 59, 0.05);
+    border-color: var(--color-on-dark);
   }
 
   .input-rianpedia::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--color-muted);
   }
 
   /* ============================
-     HOVER GLOW EFFECT
+     SPEC CELL
      ============================ */
-  .hover-glow {
-    transition: all 0.3s ease;
-  }
-
-  .hover-glow:hover {
-    filter: drop-shadow(0 0 12px rgba(255, 59, 59, 0.6));
-  }
-
-  /* ============================
-     STAT CARD
-     ============================ */
-  .stat-card {
+  .spec-cell {
+    background: var(--color-surface-soft);
+    border-radius: 0;
+    padding: 24px;
     text-align: center;
-    padding: 1.5rem;
   }
 
-  .stat-card .stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #FF3B3B, #9CA3AF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
+  .spec-cell .spec-value {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-on-dark);
   }
 
-  .stat-card .stat-label {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-top: 0.5rem;
+  .spec-cell .spec-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 8px;
+  }
+
+  /* ============================
+     TAG / BADGE
+     ============================ */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-hairline);
+    background: transparent;
+  }
+
+  /* ============================
+     TEXT LINK
+     ============================ */
+  .text-link {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-on-dark);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease;
+  }
+
+  .text-link:hover {
+    opacity: 0.7;
   }
 }
 
@@ -376,71 +468,54 @@
 }
 
 /* ============================
-   CUSTOM ANIMATIONS
+   RESPONSIVE TYPOGRAPHY
    ============================ */
-@keyframes float-particle {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
+@media (max-width: 768px) {
+  .display-xl {
+    font-size: 32px;
+    line-height: 1.1;
   }
-  5% { opacity: 1; }
-  95% { opacity: 0.8; }
-  100% {
-    transform: translateY(-10vh) scale(1.5);
-    opacity: 0;
+  .display-lg {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+  .display-md {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .display-sm {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+  .title-lg {
+    font-size: 20px;
+  }
+  .title-md {
+    font-size: 18px;
+  }
+  .section-padding {
+    padding: 64px 0;
+  }
+  .btn-primary,
+  .btn-outline {
+    font-size: 12px;
+    padding: 12px 24px;
+    height: 44px;
+    letter-spacing: 1px;
   }
 }
 
-@keyframes border-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  0%, 100% { border-color: transparent }
-  50% { border-color: #FF3B3B }
-}
-
-/* Shimmer loading effect */
-.shimmer-effect {
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.03) 0%,
-    rgba(255,255,255,0.08) 50%,
-    rgba(255,255,255,0.03) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-/* Hero glow orb */
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.glow-orb-red {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #FF3B3B 0%, transparent 70%);
-}
-
-.glow-orb-grey {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #9CA3AF 0%, transparent 70%);
-}
-
-.glow-orb-dark-red {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, #E50914 0%, transparent 70%);
+@media (max-width: 480px) {
+  .display-xl {
+    font-size: 28px;
+  }
+  .display-lg {
+    font-size: 24px;
+  }
+  .display-md {
+    font-size: 20px;
+  }
+  .display-sm {
+    font-size: 18px;
+  }
 }

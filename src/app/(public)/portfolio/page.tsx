@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Filter } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -18,42 +18,39 @@ export default async function PortfolioPage() {
   const categories = ["Semua", ...new Set(portfolios.map(p => p.category).filter(Boolean) as string[])];
 
   return (
-    <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
+    <div style={{ background: "transparent", minHeight: "100vh" }}>
       {/* Hero */}
-      <section className="pt-32 pb-16 relative">
-        <div className="ai-grid" />
-        <div
-          className="absolute glow-orb"
-          style={{ width: "500px", height: "400px", background: "radial-gradient(circle, rgba(124, 58, 237,0.2) 0%, transparent 70%)", top: "-100px", right: "10%" }}
-        />
-        <div className="container-rianpedia relative z-10 text-center max-w-3xl mx-auto">
-          <div className="section-label mx-auto">🚀 Portfolio</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Proyek yang{" "}
-            <span style={{ background: "linear-gradient(135deg, #FF3B3B, #22D3EE)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              Berbicara Sendiri
-            </span>
+      <section style={{ paddingTop: "128px", paddingBottom: "64px" }}>
+        <div className="container-rianpedia text-center max-w-3xl mx-auto">
+
+
+          <h1 className="display-lg mb-6">
+            PROYEK YANG BERBICARA SENDIRI
           </h1>
-          <p className="text-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <p className="body-md" style={{ fontSize: "18px" }}>
             Setiap case study adalah bukti nyata bagaimana kami mengubah tantangan bisnis menjadi solusi digital yang berdampak.
           </p>
         </div>
       </section>
 
-      {/* Filter pills */}
-      <section className="pb-8">
+      {/* Category Tabs */}
+      <section style={{ borderTop: "1px solid #3c3c3c", borderBottom: "1px solid #3c3c3c" }}>
         <div className="container-rianpedia">
-          <div className="flex flex-wrap gap-3 items-center justify-center">
-            <Filter className="w-4 h-4" style={{ color: "rgba(255,255,255,0.3)" }} />
+          <div className="flex flex-wrap gap-6 items-center justify-center py-4">
             {categories.map((cat) => (
               <span
                 key={cat}
-                className="text-sm px-4 py-2 rounded-full cursor-pointer transition-all"
-                style={
-                  cat === "Semua"
-                    ? { background: "rgba(255, 59, 59,0.2)", border: "1px solid rgba(255, 59, 59,0.4)", color: "#a5a1ff" }
-                    : { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }
-                }
+                className={cat === "Semua" ? "category-tab-active" : "category-tab"}
+                style={cat === "Semua" ? {
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  letterSpacing: "1.5px",
+                  textTransform: "uppercase" as const,
+                  color: "#ffffff",
+                  padding: "12px 0",
+                  borderBottom: "2px solid #ffffff",
+                  cursor: "pointer",
+                } : undefined}
               >
                 {cat}
               </span>
@@ -63,70 +60,78 @@ export default async function PortfolioPage() {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="pb-24">
+      <section style={{ padding: "96px 0" }}>
         <div className="container-rianpedia">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {portfolios.map(({ id, title, clientName, problem, solution, results, techStack, color, emoji, category, year }) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {portfolios.map(({ id, title, clientName, problem, solution, results, techStack, emoji, category, year }) => (
               <div
                 key={id}
-                className="glass-card p-8 group flex flex-col"
+                className="group flex flex-col"
+                style={{
+                  background: "#1a1a1a",
+                  border: "1px solid #3c3c3c",
+                  padding: "40px",
+                  marginBottom: "-1px",
+                  marginRight: "-1px",
+                }}
               >
                 {/* Top */}
                 <div className="flex items-start justify-between mb-5">
                   <div>
-                    <div
-                      className="tag mb-3 self-start"
-                      style={{ background: `${color ?? "#FF3B3B"}15`, borderColor: `${color ?? "#FF3B3B"}30`, color: color ?? "#FF3B3B" }}
-                    >
+                    <div className="tag mb-3 self-start">
                       {emoji} {category}
                     </div>
-                    <h2 className="text-xl font-bold text-white">{title}</h2>
-                    <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
+                    <h2 className="title-lg">{title}</h2>
+                    <p className="caption mt-1">
                       {clientName} · {year}
                     </p>
                   </div>
-                  <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: color ?? "#FF3B3B", marginTop: "4px", flexShrink: 0 }} />
+                  <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity text-white mt-1 shrink-0" />
                 </div>
 
                 {/* Problem → Solution */}
                 <div className="space-y-4 mb-6">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em" }}>
-                      🔴 Tantangan
+                    <p className="label-uppercase text-[12px] mb-2" style={{ color: "#7e7e7e" }}>
+                      TANTANGAN
                     </p>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{problem}</p>
+                    <p className="body-sm">{problem}</p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em" }}>
-                      🟢 Solusi Rianpedia
+                    <p className="label-uppercase text-[12px] mb-2" style={{ color: "#7e7e7e" }}>
+                      SOLUSI
                     </p>
-                    <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{solution}</p>
+                    <p className="body-sm">{solution}</p>
                   </div>
                 </div>
 
                 {/* Results */}
                 <div className="mb-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "rgba(255,255,255,0.3)", letterSpacing: "0.1em" }}>
-                    📈 Hasil
+                  <p className="label-uppercase text-[12px] mb-3" style={{ color: "#7e7e7e" }}>
+                    HASIL
                   </p>
                   <div className="grid grid-cols-2 gap-2">
                     {results?.map((r: string) => (
                       <div
                         key={r}
-                        className="flex items-start gap-2 text-xs p-2.5 rounded-lg"
-                        style={{ background: `${color ?? "#FF3B3B"}10`, border: `1px solid ${color ?? "#FF3B3B"}20` }}
+                        className="flex items-start gap-2 text-[12px] font-light p-3"
+                        style={{ background: "#262626", border: "1px solid #3c3c3c" }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full mt-1 shrink-0" style={{ background: color ?? "#FF3B3B" }} />
-                        <span style={{ color: "rgba(255,255,255,0.65)" }}>{r}</span>
+                        <span className="w-1 h-1 bg-white mt-1.5 shrink-0" />
+                        <span style={{ color: "#bbbbbb" }}>{r}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Tech */}
-                <div className="flex flex-wrap gap-2 pt-4 mt-auto" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <div className="flex flex-wrap gap-2 pt-4 mt-auto" style={{ borderTop: "1px solid #262626" }}>
                   {techStack?.map((t: string) => (
-                    <span key={t} className="text-xs px-2.5 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}>
+                    <span
+                      key={t}
+                      className="text-[12px] font-bold uppercase tracking-[1px] px-3 py-1"
+                      style={{ background: "#262626", border: "1px solid #3c3c3c", color: "#7e7e7e" }}
+                    >
                       {t}
                     </span>
                   ))}
@@ -138,24 +143,20 @@ export default async function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="pb-24">
-        <div className="container-rianpedia text-center">
-          <div
-            className="inline-block p-10 rounded-3xl"
-            style={{ background: "rgba(255, 59, 59,0.08)", border: "1px solid rgba(255, 59, 59,0.2)" }}
-          >
-            <h2 className="text-2xl font-bold text-white mb-3">Siap Jadi Case Study Berikutnya?</h2>
-            <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Mulai dengan AI Recommender kami untuk mendapatkan proposal mini dalam hitungan menit.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/ai-recommender" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-xl text-white" style={{ background: "linear-gradient(135deg, #FF3B3B, #7C3AED)" }}>
-                🤖 Coba AI Recommender <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-xl" style={{ border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.7)" }}>
-                Hubungi Tim Kami
-              </Link>
-            </div>
+      <section style={{ borderTop: "1px solid #3c3c3c" }}>
+        <div className="m-stripe" />
+        <div className="container-rianpedia text-center" style={{ padding: "96px 1.5rem" }}>
+          <h2 className="display-sm mb-4">SIAP JADI CASE STUDY BERIKUTNYA?</h2>
+          <p className="body-md mb-8">
+            Mulai dengan AI Recommender kami untuk mendapatkan proposal mini dalam hitungan menit.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/ai-recommender" className="btn-primary">
+              AI RECOMMENDER <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+            <Link href="/contact" className="btn-outline">
+              HUBUNGI TIM KAMI
+            </Link>
           </div>
         </div>
       </section>

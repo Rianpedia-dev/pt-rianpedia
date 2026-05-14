@@ -1,72 +1,57 @@
 export function TestimonialsSection({ testimonials }: { testimonials: any[] }) {
   return (
-    <section
-      className="section-padding"
-      style={{
-        background: "linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)",
-      }}
-    >
+    <section className="section-padding" style={{ background: "transparent" }}>
       <div className="container-rianpedia">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="section-label mx-auto">
-            <span>⭐</span> Testimonials
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Apa Kata{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #FF3B3B, #22D3EE)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Klien Kami
-            </span>
+
+          <h2 className="display-md mb-4">
+            APA KATA KLIEN KAMI
           </h2>
-          <p className="text-base" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="body-md">
             Kepercayaan klien adalah aset terbesar kami.
           </p>
         </div>
 
         {/* Testimonial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map(({ id, name, role, avatar, content, rating, color }) => {
-            const themeColor = color ?? "#FF3B3B";
+        <div className="flex md:grid md:grid-cols-3 gap-0 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 -mx-6 px-6 md:mx-0 md:px-0">
+          {testimonials.map(({ id, name, role, avatar, content, rating }) => {
             const stars = rating ?? 5;
             const initial = avatar || name.charAt(0);
             
             return (
               <div
                 key={id}
-                className="glass-card p-7 flex flex-col gap-5"
+                className="flex flex-col gap-5 flex-none w-[85vw] max-w-[400px] md:max-w-none md:w-auto snap-center"
+                style={{
+                  background: "#1a1a1a",
+                  border: "1px solid #3c3c3c",
+                  padding: "32px",
+                }}
               >
                 {/* Rating Stars */}
                 <div className="flex gap-1">
                   {Array.from({ length: stars }).map((_, i) => (
-                    <span key={i} style={{ color: "#F59E0B", fontSize: "1rem" }}>★</span>
+                    <span key={i} style={{ color: "#f4b400", fontSize: "1rem" }}>★</span>
                   ))}
                 </div>
 
                 {/* Content */}
-                <p className="text-sm leading-relaxed flex-1" style={{ color: "rgba(255,255,255,0.65)" }}>
+                <p className="body-sm flex-1" style={{ color: "#bbbbbb", fontStyle: "italic" }}>
                   &ldquo;{content}&rdquo;
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid #262626" }}>
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${themeColor}, ${themeColor}80)`,
-                    }}
+                    className="w-10 h-10 flex items-center justify-center text-[14px] font-bold text-white shrink-0"
+                    style={{ background: "#262626", border: "1px solid #3c3c3c" }}
                   >
                     {initial}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">{name}</p>
-                    <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>{role}</p>
+                    <p className="text-[14px] font-bold text-white">{name}</p>
+                    <p className="caption">{role}</p>
                   </div>
                 </div>
               </div>
