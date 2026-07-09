@@ -68,7 +68,7 @@ export default function AIRecommenderPage() {
         <div className="container-rianpedia text-center max-w-3xl mx-auto">
 
 
-          <h1 className="display-lg mb-4">AI PROJECT RECOMMENDER</h1>
+          <h1 className="display-lg mb-4">REKOMENDASI PROYEK AI</h1>
           <p className="body-md">
             Jawab 4 pertanyaan sederhana. Dapatkan arsitektur sistem, estimasi biaya, dan timeline secara instan.
           </p>
@@ -83,7 +83,7 @@ export default function AIRecommenderPage() {
             <div className="mb-8">
               <div className="flex justify-between mb-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className={`label-uppercase text-[12px] ${step >= i ? "text-white" : ""}`} style={step < i ? { color: "#3c3c3c" } : {}}>STEP {i}</div>
+                  <div key={i} className={`label-uppercase text-[12px] ${step >= i ? "text-white" : ""}`} style={step < i ? { color: "#3c3c3c" } : {}}>LANGKAH {i}</div>
                 ))}
               </div>
               <div className="w-full h-[2px]" style={{ background: "#262626" }}>

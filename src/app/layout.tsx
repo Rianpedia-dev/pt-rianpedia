@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rianpedia — Engineering the Future with Intelligent Systems",
+    default: "Rianpedia — Merancang Masa Depan dengan Sistem Cerdas",
     template: "%s | Rianpedia",
   },
   description:
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: process.env.NEXT_PUBLIC_APP_URL,
-    title: "Rianpedia — Engineering the Future with Intelligent Systems",
+    title: "Rianpedia — Merancang Masa Depan dengan Sistem Cerdas",
     description:
       "AI-Powered Digital Solution Company: Website, Sistem Custom, dan Integrasi AI.",
     siteName: "Rianpedia",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Rianpedia — AI-Powered Digital Solution",
-    description: "Engineering the Future with Intelligent Systems",
+    description: "Merancang Masa Depan dengan Sistem Cerdas",
   },
   robots: {
     index: true,

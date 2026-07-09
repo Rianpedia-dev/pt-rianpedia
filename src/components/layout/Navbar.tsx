@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Beranda" },
+  { href: "/services", label: "Layanan" },
+  { href: "/portfolio", label: "Portofolio" },
+  { href: "/pricing", label: "Harga" },
+  { href: "/about", label: "Tentang Kami" },
+  { href: "/contact", label: "Kontak" },
 ];
 
 export function Navbar() {
@@ -74,13 +74,13 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Button asChild variant="outline" size="sm">
               <Link href="/ai-recommender">
-                AI RECOMMENDER
+                REKOMENDASI AI
               </Link>
             </Button>
             
             <Button asChild variant="default" size="sm">
               <Link href="/auth/login">
-                DASHBOARD
+                DASBOR
               </Link>
             </Button>
           </div>

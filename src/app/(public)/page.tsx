@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "Rianpedia — Engineering the Future with Intelligent Systems",
+  title: "Rianpedia — Merancang Masa Depan dengan Sistem Cerdas",
   description:
     "Platform AI-Powered Digital Solution Company Indonesia. Kami membangun website, sistem custom, dan integrasi AI yang mengubah bisnis Anda.",
 };

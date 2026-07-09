@@ -4,7 +4,7 @@ import { ArrowRight, Globe, Settings, Bot, Plug, CheckCircle } from "lucide-reac
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Services — Rianpedia",
+  title: "Layanan — Rianpedia",
   description: "Layanan lengkap Rianpedia: Custom Web Development, System Development, AI Integration, dan System Integration untuk bisnis Anda.",
 };
 
@@ -37,7 +37,7 @@ export default async function ServicesPage() {
           </p>
           <div className="mt-8">
             <Link href="/ai-recommender" className="btn-primary">
-              AI RECOMMENDER <ArrowRight className="w-4 h-4 ml-2" />
+              REKOMENDASI AI <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
         </div>

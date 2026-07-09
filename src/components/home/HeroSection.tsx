@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const typingWords = [
-  "Intelligent Systems",
-  "Custom Web Apps",
-  "AI Integration",
-  "Digital Solutions",
-  "Smart Automation",
+  "Sistem Cerdas",
+  "Aplikasi Web Kustom",
+  "Integrasi AI",
+  "Solusi Digital",
+  "Otomatisasi Pintar",
 ];
 
 function TypingText() {
@@ -67,9 +67,9 @@ export function HeroSection() {
               opacity: 0,
             }}
           >
-            ENGINEERING THE FUTURE
+            MERANCANG MASA DEPAN
             <br />
-            WITH{" "}
+            DENGAN{" "}
             <TypingText />
           </h1>
 
@@ -100,7 +100,7 @@ export function HeroSection() {
               className="w-full sm:w-auto min-h-[48px]"
             >
               <Link href="/ai-recommender" className="w-full flex items-center justify-center gap-2">
-                AI RECOMMENDER
+                REKOMENDASI AI
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -113,7 +113,7 @@ export function HeroSection() {
             >
               <Link href="/portfolio" className="w-full flex items-center justify-center gap-2">
                 <Play className="w-4 h-4" />
-                LIHAT PORTFOLIO
+                LIHAT PORTOFOLIO
               </Link>
             </Button>
           </div>

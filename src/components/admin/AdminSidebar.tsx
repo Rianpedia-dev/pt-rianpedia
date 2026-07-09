@@ -27,16 +27,16 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/Logo";
 
 const menuItems = [
-  { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { label: "Users", href: "/admin/users", icon: Users },
-  { label: "Projects", href: "/admin/projects", icon: FolderKanban },
-  { label: "Invoices", href: "/admin/invoices", icon: Receipt },
-  { label: "Portfolios", href: "/admin/portfolios", icon: Briefcase },
-  { label: "Services", href: "/admin/services", icon: Wrench },
-  { label: "Testimonials", href: "/admin/testimonials", icon: MessageSquareQuote },
-  { label: "Contacts", href: "/admin/contacts", icon: Mail },
-  { label: "Messages", href: "/admin/messages", icon: MessagesSquare },
-  { label: "AI Logs", href: "/admin/ai-logs", icon: BrainCircuit },
+  { label: "Dasbor", href: "/admin", icon: LayoutDashboard },
+  { label: "Pengguna", href: "/admin/users", icon: Users },
+  { label: "Proyek", href: "/admin/projects", icon: FolderKanban },
+  { label: "Tagihan", href: "/admin/invoices", icon: Receipt },
+  { label: "Portofolio", href: "/admin/portfolios", icon: Briefcase },
+  { label: "Layanan", href: "/admin/services", icon: Wrench },
+  { label: "Testimoni", href: "/admin/testimonials", icon: MessageSquareQuote },
+  { label: "Kontak Masuk", href: "/admin/contacts", icon: Mail },
+  { label: "Pesan Chat", href: "/admin/messages", icon: MessagesSquare },
+  { label: "Log AI", href: "/admin/ai-logs", icon: BrainCircuit },
 ];
 
 export function AdminSidebar() {
@@ -120,7 +120,7 @@ export function AdminSidebar() {
             className="w-full justify-start px-3 h-10 border-red-500/10 min-w-0"
           >
             <LogOut className="w-4 h-4 mr-2" />
-            Logout
+            Keluar
           </Button>
         )}
 

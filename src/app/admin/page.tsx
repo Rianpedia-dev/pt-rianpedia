@@ -51,56 +51,56 @@ export default async function AdminDashboardPage() {
 
   const statCards = [
     {
-      label: "Total Users",
+      label: "Total Pengguna",
       value: stats.users,
       icon: Users,
       color: "#FF3B3B",
       href: "/admin/users",
     },
     {
-      label: "Projects",
+      label: "Proyek",
       value: stats.projects,
       icon: FolderKanban,
       color: "#7C3AED",
       href: "/admin/projects",
     },
     {
-      label: "Invoices",
+      label: "Tagihan",
       value: stats.invoices,
       icon: Receipt,
       color: "#22D3EE",
       href: "/admin/invoices",
     },
     {
-      label: "Contacts",
+      label: "Kontak Masuk",
       value: stats.contacts,
       icon: Mail,
       color: "#F59E0B",
       href: "/admin/contacts",
     },
     {
-      label: "Portfolios",
+      label: "Portofolio",
       value: stats.portfolios,
       icon: Briefcase,
       color: "#10B981",
       href: "/admin/portfolios",
     },
     {
-      label: "Services",
+      label: "Layanan",
       value: stats.services,
       icon: Wrench,
       color: "#EC4899",
       href: "/admin/services",
     },
     {
-      label: "Testimonials",
+      label: "Testimoni",
       value: stats.testimonials,
       icon: MessageSquareQuote,
       color: "#8B5CF6",
       href: "/admin/testimonials",
     },
     {
-      label: "Revenue",
+      label: "Pendapatan",
       value: `Rp ${Number(stats.revenue).toLocaleString("id-ID")}`,
       icon: TrendingUp,
       color: "#FF3B3B",
@@ -112,7 +112,7 @@ export default async function AdminDashboardPage() {
     <div className="space-y-8">
       {/* Page Header */}
       <div>
-        <h2 className="text-2xl font-bold text-white">Dashboard Overview</h2>
+        <h2 className="text-2xl font-bold text-white">Ringkasan Dasbor</h2>
         <p className="text-[#9CA3AF] mt-1">Selamat datang di Rianpedia Admin Panel</p>
       </div>
 
@@ -160,7 +160,7 @@ export default async function AdminDashboardPage() {
           <div className="flex items-center justify-between p-5 border-b border-white/[0.06]">
             <h3 className="text-sm font-semibold text-white flex items-center gap-2">
               <FolderKanban className="w-4 h-4 text-[#7C3AED]" />
-              Recent Projects
+              Proyek Terbaru
             </h3>
             <Link
               href="/admin/projects"
@@ -212,7 +212,7 @@ export default async function AdminDashboardPage() {
           <div className="flex items-center justify-between p-5 border-b border-white/[0.06]">
             <h3 className="text-sm font-semibold text-white flex items-center gap-2">
               <Mail className="w-4 h-4 text-[#F59E0B]" />
-              Recent Contacts
+              Kontak Masuk Terbaru
             </h3>
             <Link
               href="/admin/contacts"

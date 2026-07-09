@@ -70,7 +70,7 @@ export default function ContactPage() {
                   <div>
                     <p className="label-uppercase text-[12px] mb-1" style={{ color: "#7e7e7e" }}>LOKASI</p>
                     <p className="text-[16px] font-light text-white">Jakarta, Indonesia</p>
-                    <p className="body-sm mt-1">Available for remote projects worldwide.</p>
+                    <p className="body-sm mt-1">Tersedia untuk proyek jarak jauh di seluruh dunia.</p>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                   <h3 className="text-[16px] font-bold text-white">BUTUH RESPONS CEPAT?</h3>
                 </div>
                 <p className="body-sm mb-4">Coba AI Project Recommender kami untuk estimasi proyek instan.</p>
-                <Link href="/ai-recommender" className="text-link text-[12px]">AI RECOMMENDER →</Link>
+                <Link href="/ai-recommender" className="text-link text-[12px]">REKOMENDASI AI →</Link>
               </div>
             </div>
 

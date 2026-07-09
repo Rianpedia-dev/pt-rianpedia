@@ -98,7 +98,7 @@ export default function LoginPage() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="block text-sm font-medium text-white">Password</label>
-                <a href="#" className="text-xs font-semibold hover:underline" style={{ color: "#a5a1ff" }}>Forgot Password?</a>
+                <a href="#" className="text-xs font-semibold hover:underline" style={{ color: "#a5a1ff" }}>Lupa Password?</a>
               </div>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -122,7 +122,7 @@ export default function LoginPage() {
               size="lg"
               className="w-full mt-6"
             >
-              {isLoading ? "SEDANG MASUK..." : "SIGN IN"}
+              {isLoading ? "SEDANG MASUK..." : "MASUK"}
               {!isLoading && <ArrowRight className="w-4 h-4 ml-2" />}
             </Button>
 

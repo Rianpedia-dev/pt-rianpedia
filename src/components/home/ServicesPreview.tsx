@@ -71,7 +71,7 @@ export function ServicesPreview({ services }: { services: any[] }) {
 
                 {/* Link */}
                 <div className="text-link text-[12px] group-hover:opacity-70">
-                  EXPLORE →
+                  JELAJAHI →
                 </div>
               </Link>
             );
@@ -81,7 +81,7 @@ export function ServicesPreview({ services }: { services: any[] }) {
         {/* Bottom CTA */}
         <div className="text-center mt-12">
           <Link href="/services" className="text-link">
-            VIEW ALL SERVICES <ArrowRight className="w-4 h-4" />
+            LIHAT SEMUA LAYANAN <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

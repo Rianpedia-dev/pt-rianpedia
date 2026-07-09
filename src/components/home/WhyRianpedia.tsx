@@ -3,17 +3,17 @@ import { Cpu, Shield, Zap, Users, Star, TrendingUp } from "lucide-react";
 const reasons = [
   {
     icon: Cpu,
-    title: "AI-FIRST APPROACH",
+    title: "PENDEKATAN BERBASIS AI",
     description: "Setiap solusi yang kami bangun mengintegrasikan kecerdasan buatan untuk memberikan nilai lebih bagi bisnis Anda.",
   },
   {
     icon: Shield,
-    title: "ENTERPRISE SECURITY",
+    title: "KEAMANAN KELAS ENTERPRISE",
     description: "Keamanan data klien adalah prioritas utama. Enkripsi end-to-end, RBAC, dan proteksi dari ancaman modern.",
   },
   {
     icon: Zap,
-    title: "LIGHTNING PERFORMANCE",
+    title: "PERFORMA KILAT",
     description: "Load time di bawah 1.5 detik menggunakan SSR/SSG Next.js dan infrastruktur edge computing terkini.",
   },
   {
@@ -28,7 +28,7 @@ const reasons = [
   },
   {
     icon: TrendingUp,
-    title: "SCALABLE & MODULAR",
+    title: "SKALABEL & MODULAR",
     description: "Arsitektur yang dirancang untuk tumbuh bersama bisnis Anda — dari MVP hingga skala enterprise tanpa migrasi besar.",
   },
 ];

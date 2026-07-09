@@ -14,7 +14,7 @@ export function PortfolioPreview({ portfolios }: { portfolios: any[] }) {
             </h2>
           </div>
           <Link href="/portfolio" className="text-link">
-            VIEW ALL <ArrowRight className="w-4 h-4" />
+            LIHAT SEMUA <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -79,7 +79,7 @@ export function PortfolioPreview({ portfolios }: { portfolios: any[] }) {
                 href={`/portfolio#${id}`}
                 className="text-link text-[12px] mt-5 opacity-0 group-hover:opacity-100 transition-opacity"
               >
-                <ExternalLink className="w-4 h-4" /> VIEW DETAIL
+                <ExternalLink className="w-4 h-4" /> LIHAT DETAIL
               </Link>
             </div>
           ))}

@@ -3,15 +3,15 @@ import Link from "next/link";
 import { ArrowRight, Zap, Heart, Target, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About — Rianpedia",
+  title: "Tentang Kami — Rianpedia",
   description: "Kenali Rianpedia lebih dekat — filosofi, tim, dan visi kami sebagai AI-Powered Digital Solution Company.",
 };
 
 const values = [
-  { icon: Zap, title: "SPEED & QUALITY", desc: "Dengan tools AI dan proses yang teruji, kami deliver lebih cepat tanpa kompromi kualitas." },
-  { icon: Heart, title: "CLIENT FIRST", desc: "Kepuasan klien adalah metric terpenting kami. Kami tidak berhenti sebelum proyek memenuhi kebutuhan bisnis Anda." },
-  { icon: Target, title: "RESULTS-ORIENTED", desc: "Kami membangun solusi yang menghasilkan ROI nyata dan dampak bisnis yang terukur." },
-  { icon: Lightbulb, title: "INNOVATION DRIVEN", desc: "Selalu adopsi teknologi terbaru: AI, edge computing, real-time systems." },
+  { icon: Zap, title: "KECEPATAN & KUALITAS", desc: "Dengan tools AI dan proses yang teruji, kami deliver lebih cepat tanpa kompromi kualitas." },
+  { icon: Heart, title: "KLIEN UTAMA", desc: "Kepuasan klien adalah metric terpenting kami. Kami tidak berhenti sebelum proyek memenuhi kebutuhan bisnis Anda." },
+  { icon: Target, title: "BERORIENTASI HASIL", desc: "Kami membangun solusi yang menghasilkan ROI nyata dan dampak bisnis yang terukur." },
+  { icon: Lightbulb, title: "DIDORONG INOVASI", desc: "Selalu adopsi teknologi terbaru: AI, edge computing, real-time systems." },
 ];
 
 const timeline = [
@@ -69,7 +69,7 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="container-rianpedia">
           <div className="text-center mb-12">
-            <div className="section-label mx-auto justify-center">VALUES</div>
+            <div className="section-label mx-auto justify-center">NILAI-NILAI</div>
             <h2 className="display-md">PRINSIP YANG MEMANDU KAMI</h2>
           </div>
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
       <section style={{ background: "transparent", borderTop: "1px solid #3c3c3c", borderBottom: "1px solid #3c3c3c", padding: "96px 0" }}>
         <div className="container-rianpedia max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <div className="section-label mx-auto justify-center">JOURNEY</div>
+            <div className="section-label mx-auto justify-center">PERJALANAN</div>
             <h2 className="display-md">PERJALANAN RIANPEDIA</h2>
           </div>
           <div className="relative">
@@ -145,7 +145,7 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="container-rianpedia">
           <div className="text-center mb-12">
-            <div className="section-label mx-auto justify-center">TEAM</div>
+            <div className="section-label mx-auto justify-center">TIM</div>
             <h2 className="display-md">TIM DI BALIK RIANPEDIA</h2>
           </div>
           <div className="flex flex-wrap justify-center gap-0">
@@ -183,7 +183,7 @@ export default function AboutPage() {
           <h2 className="display-sm mb-4">BERGABUNGLAH BERSAMA KLIEN KAMI</h2>
           <p className="body-md mb-8">Mulai perjalanan digital Anda bersama Rianpedia hari ini.</p>
           <Link href="/ai-recommender" className="btn-primary">
-            AI RECOMMENDER <ArrowRight className="w-4 h-4 ml-2" />
+            REKOMENDASI AI <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </div>
       </section>

@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { Home, Grid, Folder, Zap } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/services", label: "Services", icon: Grid },
-  { href: "/portfolio", label: "Portfolio", icon: Folder },
+  { href: "/", label: "Beranda", icon: Home },
+  { href: "/services", label: "Layanan", icon: Grid },
+  { href: "/portfolio", label: "Portofolio", icon: Folder },
   { href: "/ai-recommender", label: "AI", icon: Zap },
 ];
 

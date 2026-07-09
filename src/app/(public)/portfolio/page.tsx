@@ -4,7 +4,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Rianpedia",
+  title: "Portofolio — Rianpedia",
   description: "Case study dan portfolio proyek Rianpedia. Lihat bagaimana kami membantu klien mencapai tujuan bisnis mereka dengan solusi digital.",
 };
 
@@ -152,7 +152,7 @@ export default async function PortfolioPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/ai-recommender" className="btn-primary">
-              AI RECOMMENDER <ArrowRight className="w-4 h-4 ml-2" />
+              REKOMENDASI AI <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
             <Link href="/contact" className="btn-outline">
               HUBUNGI TIM KAMI

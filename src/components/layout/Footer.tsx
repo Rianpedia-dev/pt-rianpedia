@@ -5,17 +5,17 @@ import { Logo } from "@/components/ui/Logo";
 import { Twitter, Instagram, Linkedin, Github, Mail, Phone, MapPin } from "lucide-react";
 
 const services = [
-  { label: "Custom Web Development", href: "/services#web" },
-  { label: "System Development", href: "/services#system" },
-  { label: "AI Integration", href: "/services#ai" },
-  { label: "System Integration", href: "/services#integration" },
+  { label: "Pengembangan Web Kustom", href: "/services#web" },
+  { label: "Pengembangan Sistem", href: "/services#system" },
+  { label: "Integrasi AI", href: "/services#ai" },
+  { label: "Integrasi Sistem", href: "/services#integration" },
 ];
 
 const company = [
-  { label: "About Us", href: "/about" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Contact", href: "/contact" },
+  { label: "Tentang Kami", href: "/about" },
+  { label: "Portofolio", href: "/portfolio" },
+  { label: "Harga", href: "/pricing" },
+  { label: "Kontak", href: "/contact" },
 ];
 
 const socials = [
@@ -65,7 +65,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="label-uppercase mb-5" style={{ color: "#e6e6e6" }}>
-              Services
+              Layanan
             </h3>
             <ul className="space-y-3">
               {services.map(({ label, href }) => (
@@ -85,7 +85,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <h3 className="label-uppercase mb-5" style={{ color: "#e6e6e6" }}>
-              Company
+              Perusahaan
             </h3>
             <ul className="space-y-3">
               {company.map(({ label, href }) => (
@@ -105,7 +105,7 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="label-uppercase mb-5" style={{ color: "#e6e6e6" }}>
-              Contact
+              Kontak
             </h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
@@ -138,7 +138,7 @@ export function Footer() {
                 href="/ai-recommender"
                 className="text-link text-[12px]"
               >
-                AI RECOMMENDER →
+                REKOMENDASI AI →
               </Link>
             </div>
           </div>
@@ -151,10 +151,10 @@ export function Footer() {
         style={{ borderTop: "1px solid #262626" }}
       >
         <p className="caption">
-          © {new Date().getFullYear()} Rianpedia. All rights reserved.
+          © {new Date().getFullYear()} Rianpedia. Hak cipta dilindungi undang-undang.
         </p>
         <p className="caption">
-          Built with precision by Rianpedia Team
+          Dibuat dengan presisi oleh Tim Rianpedia
         </p>
       </div>
     </footer>

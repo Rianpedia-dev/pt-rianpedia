@@ -3,13 +3,13 @@ import Link from "next/link";
 import { ArrowRight, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Pricing — Rianpedia",
+  title: "Harga — Rianpedia",
   description: "Paket harga transparan Rianpedia. Milestone payment, estimasi biaya, dan proses kerja yang jelas.",
 };
 
 const pricingTiers = [
   {
-    name: "STARTER",
+    name: "PEMULA",
     tagline: "Untuk bisnis yang baru memulai",
     price: "Mulai 5 Juta",
     priceNote: "tergantung scope",
@@ -129,7 +129,7 @@ export default function PricingPage() {
       <section style={{ background: "transparent", borderTop: "1px solid #3c3c3c", borderBottom: "1px solid #3c3c3c", padding: "96px 0" }}>
         <div className="container-rianpedia">
           <div className="text-center mb-12">
-            <div className="section-label mx-auto justify-center">MILESTONE PAYMENT</div>
+            <div className="section-label mx-auto justify-center">PEMBAYARAN BERTAHAP</div>
             <h2 className="display-sm mb-3">PEMBAYARAN BERTAHAP, RISIKO MINIMAL</h2>
             <p className="body-md">Tidak perlu bayar lunas di awal. Sistem milestone yang melindungi kedua belah pihak.</p>
           </div>
